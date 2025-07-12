@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Papa | Shashi Raj</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at top, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat top center;
+      z-index: -1;
+      animation: moveStars 200s linear infinite;
+      opacity: 0.3;
+    }
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 5000px; }
+    }
+    h1, h2 {
+      color: #ffca28;
+    }
+    .name-glow {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      animation: type 3s steps(10) 1s 1 normal both, glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes type {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #ffca28, 0 0 40px #ffca28; }
+    }
+    .section {
+      background: rgba(255, 255, 255, 0.05);
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 12px;
+      max-width: 800px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 100px;
+      height: 120px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.5rem;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .flip-card-front {
+      background-color: #ffffff20;
+      color: #fff;
+    }
+    .flip-card-back {
+      background-color: #ffca28;
+      color: #000;
+      transform: rotateY(180deg);
+    }
+    .stat { margin: 0.3rem 0; font-size: 1.1rem; }
+    .footer { margin-top: 3rem; font-size: 1rem; color: #bbb; }
+    canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>  <h1>Happy Birthday, Papa! 🎂</h1>
+  <div class="name-glow">To the amazing – Shashi Raj</div>
+  <div class="section">
+    <p>From Hyderabad with love – your son, Jathin</p>
+  </div>  <div class="section">
+    <h2>SHASHI RAJ – My Hero in 9 Letters</h2>
+    <div class="card-container" id="cardContainer"></div>
+  </div>  <div class="section">
+    <h2>Dear Papa,</h2>
+    <p>
+      Distance may keep us apart this year – me in Hyderabad, you in Lucknow – but my heart is always with you.<br><br>
+      You’ve been more than a father. You’ve been a guide, a protector, and my biggest inspiration.<br><br>
+      This birthday, I just want to say thank you… for everything – for the sacrifices you made, the strength you showed, and the love you always gave unconditionally.<br><br>
+      Happy Birthday, Papa 💙<br><br>
+      With endless love,<br>
+      Your proud son,<br>
+      <strong>Jathin Kumar</strong>
+    </p>
+  </div>  <div class="section">
+    <h2>Shashi Raj’s Legendary Stats</h2>
+    <p class="stat">🧠 Wisdom Level: 9999+</p>
+    <p class="stat">👔 Life Manager: Pro Level</p>
+    <p class="stat">💼 Hard Work XP: MAXED OUT</p>
+    <p class="stat">❤️ Dad Score: Unbeatable</p>
+    <p class="stat">💡 Innovation Quotient: 100%</p>
+    <p class="stat">🧘 Calm Under Pressure: 95%</p>
+    <p class="stat">📚 Lifelong Learning: 100%</p>
+    <p class="stat">🤝 Mentorship Skills: Legendary</p>
+  </div>  <div class="footer">
+    <p>Built with 💻, 💙 and a whole lot of respect<br><br>
+    — Your proud son, <strong>Jathin Kumar</strong><br>
+    This page was coded by me. Yup. I did this 😎</p>
+  </div>  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>  <script>
+    // Confetti on load
+    function launchConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 120,
+        origin: { y: 0.2 },
+        colors: ['#d4f1f9', '#f9f6dc', '#f6d6ad', '#ffffff']
+      });
+    }
+    window.onload = () => {
+      launchConfetti();
+      setTimeout(() => launchConfetti(), 2000);
+    }
+
+    const compliments = {
+      S: "Strongest shield in my life 🛡️❤️",
+      H: "Hero of my story 🎬✨",
+      A: "Always there when I need you 📶🧠",
+      I: "Incredible multitasker 🔧📋🍛",
+      R: "Rock-solid support 🪨💪",
+      J: "Journey maker 🚗🌍"
+    };
+
+    const messageMap = {
+      S: 'Supportive 💪',
+      H: 'Honest ❤️',
+      A: 'Admirable 🌟',
+      I: 'Inspiring ✨',
+      R: 'Reliable 🧱',
+      J: 'Joyful 😊'
+    };
+
+    const name = 'SHASHIRAJ';
+    const container = document.getElementById('cardContainer');
+
+    for (let i = 0; i < name.length; i++) {
+      const letter = name[i];
+      const card = document.createElement('div');
+      card.className = 'flip-card';
+
+      const inner = document.createElement('div');
+      inner.className = 'flip-card-inner';
+
+      const front = document.createElement('div');
+      front.className = 'flip-card-front';
+      front.textContent = letter;
+
+      const back = document.createElement('div');
+      back.className = 'flip-card-back';
+      back.textContent = messageMap[letter] || 'Awesome ✨';
+
+      inner.appendChild(front);
+      inner.appendChild(back);
+      card.appendChild(inner);
+      container.appendChild(card);
+
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+        confetti();
+        setTimeout(() => alert(compliments[letter] || 'Amazing'), 300);
+      });
+    }
+  </script></body>
+</html>
